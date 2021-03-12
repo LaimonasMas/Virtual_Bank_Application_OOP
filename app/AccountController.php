@@ -12,6 +12,7 @@ class AccountController {
     public function create()
     {
         $pageTitle = 'New Bananna Box';
+
         require DIR.'views/create.php';
     }
 

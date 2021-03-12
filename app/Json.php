@@ -122,6 +122,16 @@ class Json
         }
         return 'LT' . $string1 . ' ' . '7044 0' . $string2 . ' ' . $string3 . ' ' . $string4;
     }
+
+    public static function accountReadOnly()
+    {
+        $data = file_get_contents(DIR . 'data/accounts.json');
+        $data = json_decode($data, 1);
+        foreach($data as $key => $value) {
+            $accountNr = $value['accountNumber'];
+        }
+        return $accountNr;
+    }
 }
 
 
