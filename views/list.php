@@ -1,6 +1,5 @@
 <?php require DIR.'views/top.php' ?>
 <?php require DIR.'views/menu.php' ?>
-<h4><?= $pageTitle ?></h4>
 <table class="table table-bordered table-hover" style="background:#F3F3F3">
         <thead class="table-light">
             <tr>
@@ -40,9 +39,12 @@
         <td><?= $account->surname ?></td>
         <td><?= $account->personalID ?></td>
         <td><?= $account->accountNumber ?></td>
-        <td>€ 0 </td>
+        <td>€ <?= $account->amount ?></td>
         <td>
-        <a class="btn btn-outline-success" href="<?= URL ?>edit/<?= $account->id ?>">EDIT</a>
+        <!-- <a class="btn btn-outline-success" href="<?= URL ?>edit/<?= $account->id ?>">EDIT</a> -->
+        <form style="display:inline-block;" action="<?= URL ?>edit" method="post">
+            <button type="submit" class="btn btn-outline-success" name="add" value="<?= $account->id ?>">Pridėti</button>
+        </form>
         <form style="display:inline-block;" action="<?= URL ?>delete/<?= $account->id ?>" method="post">
             <button type="submit" class="btn btn-outline-danger">DELETE</button>
         </form>

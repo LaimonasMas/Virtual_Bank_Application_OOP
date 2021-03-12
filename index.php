@@ -23,8 +23,11 @@ elseif ('store' == $uri[0]) {
 elseif ('list' == $uri[0]) {
     (new AccountController)->list();
 }
+// elseif ('edit' == $uri[0]) {
+//     (new AccountController)->edit((int)$uri[1]);
+// }
 elseif ('edit' == $uri[0]) {
-    (new AccountController)->edit((int)$uri[1]);
+    (new AccountController)->add();
 }
 elseif ('update' == $uri[0]) {
     (new AccountController)->update((int)$uri[1]);

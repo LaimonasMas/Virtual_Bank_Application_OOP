@@ -28,7 +28,7 @@ class AccountController
     {
         if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && (preg_match('/(^[3-6]\d{2}[0-1]\d{1}[0-3]\d{5})$/', $_POST['personalID']) === 1)) {
             $account = new Account;
-            $account->initAmount = (int) ($_POST['count'] ?? 0);
+            $account->amount = (int) ($_POST['count'] ?? 0);
             $account->name = ($_POST['name'] ?? '');
             $account->surname = ($_POST['surname'] ?? '');
             $account->accountNumber = ($_POST['accountNumber'] ?? '');
@@ -50,8 +50,17 @@ class AccountController
         require DIR . 'views/list.php';
     }
 
-    public function edit(int $id)
+    // public function edit(int $id)
+    // {
+    //     $account = Json::getDB()->getBox($id);
+    //     $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
+    //     require DIR . 'views/edit.php';
+    // }
+
+    public function add()
     {
+        $accounts = Json::getDB()->readData();
+        $id = (int) ($_POST['add']);
         $account = Json::getDB()->getBox($id);
         $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
         require DIR . 'views/edit.php';
@@ -60,9 +69,9 @@ class AccountController
     public function update(int $id)
     {
         $account = Json::getDB()->getBox($id);
-        $account->initAmount = (int) ($_POST['count'] ?? 0);
+        $account->amount += (int) ($_POST['addEur'] ?? 0);
         Json::getDB()->update($account); // updeitina
-        header('Location: ' . URL);
+        header('Location: ' . URL . 'list');
         die;
     }
 
