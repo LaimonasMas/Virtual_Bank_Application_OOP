@@ -1,5 +1,5 @@
 <?php
 
 class Account {
-    public $id, $bannana;
+    public $id, $name, $surname, $personalID, $accountNumber, $initAmount;
 }

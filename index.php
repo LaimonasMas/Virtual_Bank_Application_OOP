@@ -17,6 +17,9 @@ elseif ('create' == $uri[0]) {
 elseif ('store' == $uri[0]) {
     (new AccountController)->store();
 }
+elseif ('list' == $uri[0]) {
+    (new AccountController)->list();
+}
 elseif ('edit' == $uri[0]) {
     (new AccountController)->edit((int)$uri[1]);
 }

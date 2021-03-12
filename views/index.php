@@ -1,57 +1,21 @@
 <?php require DIR.'views/top.php' ?>
-<h1><?= $pageTitle ?></h1>
 <?php require DIR.'views/menu.php' ?>
-<table class="table table-bordered table-hover" style="background:#F3F3F3">
-        <thead class="table-light">
-            <tr>
-                <br>
-                <th scope="col">
-                    <p>#</p>
-                </th>
-                <th scope="col">
-                    <p>ID</p>
-                </th>
-                <th scope="col">
-                    <p>Vardas</p>
-                </th>
-                <th scope="col">
-                    <p>Pavardė</p>
-                </th>
-                <th scope="col">
-                    <p>Sąskaitos numeris</p>
-                </th>
-                <th scope="col">
-                    <p>Asmens kodas</p>
-                </th>
-                <th scope="col">
-                    <p>Sąskaitos likutis</p>
-                </th>
-                <th scope="col">
-                    <p>Veiksmai</p>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-                <td>
+<h4><?= $pageTitle ?></h4>
 
-           
-<ul id="list">
-    <?php foreach($boxes as $box) : ?>
-    <li style="padding: 10px;">
-        <span>ID: <?= $box->id ?></span>
-        <span>Count: <?= $box->bannana ?></span>
-        <a class="btn btn-outline-success" href="<?= URL ?>edit/<?= $box->id ?>">EDIT</a>
-        <form style="display:inline-block;" action="<?= URL ?>delete/<?= $box->id ?>" method="post">
-            <button type="submit" class="btn btn-outline-danger">DELETE</button>
-        </form>
-    </li>
-    <?php endforeach ?>
-</ul>
-</td>
-</tr>
-                
-</tbody>
-</table>
+    <div class="virsimg">
+        <img style="display:block; width:300px;" src="img/1. 19_SEB_Kontor_Katarinavägen17_147_5.jpg" alt="">
+        <h5 class="index-h5">Informacija dėl finansų tvarkymo karantino metu</h5>
+        <span>Sužinokite, kaip atidėti kreditų grąžinimą, nuotoliniu būdu tvarkyti savo finansus</span>
+    </div>
+    <div class="virsimg">
+        <img style="display:block; width:300px;" src="img/3. DSF0434a.jpg" alt="">
+        <h5 class="index-h5">Lengvas būdas taupyti</h5>
+        <span>Mobiliojoje programėlėje susikurkite tikslus ir sekite savo taupymo progresą.</span>
+    </div>
+    <div class="virsimg">
+        <img style="display:block; width:300px;" src="img/SEB-credit-card-without-card.png" alt="">
+        <h5 class="index-h5">Vaizdo konsultacija internetu</h5>
+        <span>Pasitarti finansų klausimais yra paprasta, kadangi tai galite daryti ir internetu.</span>
+    </div>
 
 <?php require DIR.'views/bottom.php' ?>
