@@ -18,10 +18,10 @@
                     <p>Pavardė</p>
                 </th>
                 <th scope="col">
-                    <p>Sąskaitos numeris</p>
+                    <p>Asmens kodas</p>
                 </th>
                 <th scope="col">
-                    <p>Asmens kodas</p>
+                    <p>Sąskaitos numeris</p>
                 </th>
                 <th scope="col">
                     <p>Sąskaitos likutis</p>
@@ -32,26 +32,24 @@
             </tr>
         </thead>
         <tbody>
+    <?php foreach($accounts as $key => $account) : ?>
         <tr>
-                <td>
-
-           
-<ul id="list">
-    <?php foreach($accounts as $account) : ?>
-    <li style="padding: 10px;">
-        <span>ID: <?= $account->id ?></span>
-        <span>Vardas: <?= $account->name ?></span>
-        <span>Pavardė: <?= $account->surname ?></span>
-        <span>Pavardė: <?= $account->personalID ?></span>
-        <span>Pavardė: <?= $account->accountNumber ?></span>
-
+        <th scope="row"><?= ($key + 1) ?></th>
+        <td><?= $account->id ?></td>
+        <td><?= $account->name ?></td>
+        <td><?= $account->surname ?></td>
+        <td><?= $account->personalID ?></td>
+        <td><?= $account->accountNumber ?></td>
+        <td>€ 0 </td>
+        <td>
         <a class="btn btn-outline-success" href="<?= URL ?>edit/<?= $account->id ?>">EDIT</a>
         <form style="display:inline-block;" action="<?= URL ?>delete/<?= $account->id ?>" method="post">
             <button type="submit" class="btn btn-outline-danger">DELETE</button>
         </form>
-    </li>
+        </td>
+        </tr>
     <?php endforeach ?>
-</ul>
+
 </td>
 </tr>
                 
