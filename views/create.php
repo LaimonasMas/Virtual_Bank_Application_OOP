@@ -5,7 +5,6 @@
     <thead class="table-light">
         <tr>
             <th scope="col">Sukurti naują sąskaitą</th>
-            <th scope="col">Suteiktas sąskaitos numeris</th>
         </tr>
     </thead>
     <tbody>
@@ -19,9 +18,6 @@
                     Asmens kodas: <input type="text" name="personalID" id="">
                     <button class="btn btn-outline-success btn-sm" type="submit">Create</button>
                 </form>
-                </td>
-                <td>
-                <p><?= Json::accountReadOnly() ?></p>
                 </td>
             </tr>
         </tbody>

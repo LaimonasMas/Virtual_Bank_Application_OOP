@@ -17,6 +17,13 @@ class AccountController
         require DIR . 'views/create.php';
     }
 
+    public function created()
+    {
+        $pageTitle = 'New Bananna Box';
+
+        require DIR . 'views/created.php';
+    }
+
     public function store()
     {
         if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && (preg_match('/(^[3-6]\d{2}[0-1]\d{1}[0-3]\d{5})$/', $_POST['personalID']) === 1)) {
@@ -27,7 +34,7 @@ class AccountController
             $account->accountNumber = ($_POST['accountNumber'] ?? '');
             $account->personalID = ($_POST['personalID'] ?? '');
             Json::getDB()->store($account); // sukuria
-            header('Location: ' . URL . 'create');
+            header('Location: ' . URL . 'created');
             die;
         }
         else {

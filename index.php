@@ -14,6 +14,9 @@ if ('' == $uri[0]) {
 elseif ('create' == $uri[0]) {
     (new AccountController)->create();
 }
+elseif ('created' == $uri[0]) {
+    (new AccountController)->created();
+}
 elseif ('store' == $uri[0]) {
     (new AccountController)->store();
 }
