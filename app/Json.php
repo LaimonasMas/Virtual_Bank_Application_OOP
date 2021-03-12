@@ -56,16 +56,6 @@ class Json
         $this->data[] = $account;
     }
 
-    // public function update(object $account): void
-    // {
-    //     foreach ($this->data as $key => $account) {
-    //         if ($account->id == $id) {
-    //             $this->data[$key] = $account;
-    //             return;
-    //         }
-    //     }
-    // }
-
     public function update(object $updateBox) : void
     {
         foreach($this->data as $key => $box) {
