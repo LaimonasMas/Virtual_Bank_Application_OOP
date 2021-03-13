@@ -11,37 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php require DIR . 'views/menu.php' ?>
 <?php _d($_POST); ?>
 <table class="table table-bordered table-hover" style="background:#F3F3F3">
-    <thead class="table-light">
-        <tr>
-            <br>
-            <th scope="col">
-                <p>#</p>
-            </th>
-            <th scope="col">
-                <p>ID</p>
-            </th>
-            <th scope="col">
-                <p>Vardas</p>
-            </th>
-            <th scope="col">
-                <p>Pavardė</p>
-            </th>
-            <th scope="col">
-                <p>Asmens kodas</p>
-            </th>
-            <th scope="col">
-                <p>Sąskaitos numeris</p>
-            </th>
-            <th scope="col">
-                <p>Sąskaitos likutis</p>
-            </th>
-            <th scope="col">
-                <p>Veiksmai</p>
-            </th>
-        </tr>
-    </thead>
+    <?php require DIR . 'views/tableHead.php' ?>
     <tbody>
-
         <?php foreach ($accounts as $key => $account) : ?>
             <tr>
                 <th scope="row"><?= ($key + 1) ?></th>
