@@ -23,18 +23,19 @@ elseif ('store' == $uri[0]) {
 elseif ('list' == $uri[0]) {
     (new AccountController)->list();
 }
-// elseif ('edit' == $uri[0]) {
-//     (new AccountController)->edit((int)$uri[1]);
-// }
-elseif ('edit' == $uri[0]) {
+elseif ('add' == $uri[0]) {
     (new AccountController)->add();
 }
-elseif ('update' == $uri[0]) {
-    (new AccountController)->update((int)$uri[1]);
+elseif ('addMoney' == $uri[0]) {
+    (new AccountController)->addMoney((int)$uri[1]);
+}
+elseif ('withdraw' == $uri[0]) {
+    (new AccountController)->withdraw();
+}
+elseif ('withdrawMoney' == $uri[0]) {
+    (new AccountController)->withdrawMoney((int)$uri[1]);
 }
 elseif ('delete' == $uri[0]) {
     (new AccountController)->delete((int)$uri[1]);
 }
 _d($_SESSION);
-
-echo 'DURYS';

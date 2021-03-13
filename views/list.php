@@ -42,10 +42,10 @@
         <td>€ <?= $account->amount ?></td>
         <td>
         <!-- <a class="btn btn-outline-success" href="<?= URL ?>edit/<?= $account->id ?>">EDIT</a> -->
-        <form style="display:inline-block;" action="<?= URL ?>edit" method="post">
+        <form style="display:inline-block;" action="<?= URL ?>add" method="post">
             <button type="submit" class="btn btn-outline-success btn-sm" name="add" value="<?= $account->id ?>">Pridėti lėšas</button>
         </form>
-        <form style="display:inline-block;" action="<?= URL ?>edit" method="post">
+        <form style="display:inline-block;" action="<?= URL ?>withdraw" method="post">
             <button type="submit" class="btn btn-outline-primary btn-sm" name="withdraw" value="<?= $account->id ?>">Nuskaityti lėšas</button>
         </form>
         <form style="display:inline-block;" action="<?= URL ?>delete/<?= $account->id ?>" method="post">

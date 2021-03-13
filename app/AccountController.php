@@ -62,21 +62,46 @@ class AccountController
         $id = (int) ($_POST['add'] ?? 0);
         $account = Json::getDB()->getBox($id);
         // $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
-        require DIR . 'views/edit.php';
+        require DIR . 'views/add.php';
     }
 
-    public function update(int $id)
+    public function addMoney(int $id)
     {
         $account = Json::getDB()->getBox($id);
-        $account->amount += (int) ($_POST['addEur'] ?? 0);
-        Json::getDB()->update($account); // updeitina
+        if ($_POST['addEur'] >= 0) {
+            $account->amount += (int) ($_POST['addEur'] ?? 0);
+        }
+        Json::getDB()->addMoney($account); // updeitina
+        header('Location: ' . URL . 'list');
+        die;
+    }
+
+    public function withdraw()
+    {
+        $accounts = Json::getDB()->readData();
+        $id = (int) ($_POST['withdraw'] ?? 0);
+        $account = Json::getDB()->getBox($id);
+        // $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
+        require DIR . 'views/withdraw.php';
+    }
+
+    public function withdrawMoney(int $id)
+    {
+        $account = Json::getDB()->getBox($id);
+        if ($_POST['withdrawEur'] >= 0 && $_POST['withdrawEur'] <= $account->amount) {
+            $account->amount -= (int) ($_POST['withdrawEur'] ?? 0);
+        }
+        Json::getDB()->withdrawMoney($account); // updeitina
         header('Location: ' . URL . 'list');
         die;
     }
 
     public function delete(int $id)
     {
-        Json::getDB()->delete($id);
+        $account = Json::getDB()->getBox($id);
+        if ($account->amount == 0) {
+            Json::getDB()->delete($id);
+        }
         header('Location: ' . URL . 'list');
         die;
     }

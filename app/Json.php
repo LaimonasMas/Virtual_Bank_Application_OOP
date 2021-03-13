@@ -12,7 +12,6 @@ class Json
         return self::$jsonObj ?? self::$jsonObj = new self;
     }
 
-
     private function __construct()
     {
         if (!file_exists(DIR . 'data/accounts.json')) { // pirmas kartas
@@ -56,10 +55,20 @@ class Json
         $this->data[] = $account;
     }
 
-    public function update(object $updateBox) : void
+    public function addMoney(object $updateBox): void
     {
-        foreach($this->data as $key => $box) {
-            if ($box->id== $updateBox->id) {
+        foreach ($this->data as $key => $box) {
+            if ($box->id == $updateBox->id) {
+                $this->data[$key] = $updateBox;
+                return;
+            }
+        }
+    }
+
+    public function withdrawMoney(object $updateBox): void
+    {
+        foreach ($this->data as $key => $box) {
+            if ($box->id == $updateBox->id) {
                 $this->data[$key] = $updateBox;
                 return;
             }
@@ -117,10 +126,11 @@ class Json
     {
         $data = file_get_contents(DIR . 'data/accounts.json');
         $data = json_decode($data, 1);
-        foreach($data as $key => $value) {
-            $accountNr = $value['accountNumber'];
-        }
-        return $accountNr;
+        $lastAccount = $data[count($data) - 1];
+        $accountNr = $lastAccount['accountNumber'];
+        $name = $lastAccount['name'];
+        $surname = $lastAccount['surname'];
+        return "Naują sąskaitą sukūrė $name $surname, sąskaitos numeris: $accountNr";
     }
 }
 

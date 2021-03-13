@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('Location: http://localhost/nd/nd_8oop/edit');
+    header('Location: http://localhost/nd/nd_8oop/withdraw');
     die;
 }
 
@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <td><?= $account->accountNumber ?></td>
                 <td>€ <?= $account->amount ?></td>
                 <td>
-                    <form action="<?= URL ?>update/<?= $account->id ?>" method="post">
-                        Pridėti: <input type="text" name="addEur" value="">
-                        <button type="submit" class="btn btn-outline-success btn-sm">Pridėti lėšas</button>
+                    <form action="<?= URL ?>withdrawMoney/<?= $account->id ?>" method="post">
+                        Nuskaityti: <input type="text" name="withdrawEur" value="">
+                        <button type="submit" class="btn btn-outline-primary btn-sm">Nuskaityti lėšas</button>
                     </form>
                 </td>
             </tr>
@@ -62,10 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         </td>
         </tr>
-
-
-
-
 
     </tbody>
 </table>

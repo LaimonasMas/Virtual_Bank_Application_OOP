@@ -1,6 +1,5 @@
 <?php require DIR.'views/top.php' ?>
 <?php require DIR.'views/menu.php' ?>
-<h4><?= $pageTitle ?></h4>
 
     <div class="virsimg">
         <img style="display:block; width:300px;" src="img/1. 19_SEB_Kontor_Katarinavägen17_147_5.jpg" alt="">

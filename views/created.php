@@ -3,7 +3,7 @@
 <table class="table table-bordered table-hover" style="background:#F3F3F3">
     <thead class="table-light">
         <tr>
-            <th scope="col">Suteiktas sąskaitos numeris</th>
+            <th scope="col">Sveikiname sukūrus naują sąskaitą!</th>
         </tr>
     </thead>
     <tbody>
