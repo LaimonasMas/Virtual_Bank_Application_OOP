@@ -5,22 +5,17 @@ class AccountController
 
     public function index()
     {
-        $pageTitle = 'Laimono Bankas';
         $accounts = Json::getDB()->readData();
         require DIR . 'views/index.php';
     }
 
     public function create()
     {
-        $pageTitle = 'New Bananna Box';
-
         require DIR . 'views/create.php';
     }
 
     public function created()
     {
-        $pageTitle = 'New Bananna Box';
-
         require DIR . 'views/created.php';
     }
 
@@ -48,13 +43,6 @@ class AccountController
         $accounts = Json::getDB()->readData();
         require DIR . 'views/list.php';
     }
-
-    // public function edit(int $id)
-    // {
-    //     $account = Json::getDB()->getBox($id);
-    //     $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
-    //     require DIR . 'views/edit.php';
-    // }
 
     public function add()
     {

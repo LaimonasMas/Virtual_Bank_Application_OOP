@@ -27,9 +27,11 @@ class Json
         file_put_contents(DIR . 'data/accounts.json', json_encode($this->data));
     }
 
-
     public function readData(): array
     {
+        usort($this->data, function ($a, $b) {
+            return $a->surname <=> $b->surname;
+        });
         return $this->data;
     }
 
@@ -126,10 +128,14 @@ class Json
     {
         $data = file_get_contents(DIR . 'data/accounts.json');
         $data = json_decode($data, 1);
+        usort($data, function ($a, $b) {
+            return $a['id'] <=> $b['id'];
+        });
         $lastAccount = $data[count($data) - 1];
         $accountNr = $lastAccount['accountNumber'];
         $name = $lastAccount['name'];
-        $surname = $lastAccount['surname'];
+        $surname = $lastAccount['surname'];  
+        _d($data);   
         return "Naują sąskaitą sukūrė $name $surname, sąskaitos numeris: $accountNr";
     }
 }
