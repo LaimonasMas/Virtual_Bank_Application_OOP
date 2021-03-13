@@ -36,8 +36,7 @@ class AccountController
             Json::getDB()->store($account); // sukuria
             header('Location: ' . URL . 'created');
             die;
-        }
-        else {
+        } else {
             header('Location: ' . URL . 'create');
             die;
         }
@@ -60,9 +59,9 @@ class AccountController
     public function add()
     {
         $accounts = Json::getDB()->readData();
-        $id = (int) ($_POST['add']);
+        $id = (int) ($_POST['add'] ?? 0);
         $account = Json::getDB()->getBox($id);
-        $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
+        // $pageTitle = 'Edit Bananna Box NR: ' . $account->id;
         require DIR . 'views/edit.php';
     }
 
