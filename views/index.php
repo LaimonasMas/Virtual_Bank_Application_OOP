@@ -1,8 +1,10 @@
 <?php require DIR.'views/top.php' ?>
 <?php require DIR.'views/menu.php' ?>
-
+<?php 
+_d($_POST);
+?>
     <div class="virsimg">
-        <img style="display:block; width:300px;" src="img/1. 19_SEB_Kontor_Katarinavägen17_147_5.jpg" alt="">
+        <img style="display:block; width:300px;" src="<?= URL ?>img/1. 19_SEB_Kontor_Katarinavägen17_147_5.jpg" alt="">
         <h5 class="index-h5">Informacija dėl finansų tvarkymo karantino metu</h5>
         <span>Sužinokite, kaip atidėti kreditų grąžinimą, nuotoliniu būdu tvarkyti savo finansus</span>
     </div>

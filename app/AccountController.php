@@ -3,6 +3,11 @@
 class AccountController
 {
 
+    public function login()
+    {
+        require DIR . 'views/login.php';
+    }
+
     public function index()
     {
         $accounts = Json::getDB()->readData();

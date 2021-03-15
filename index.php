@@ -7,7 +7,9 @@ _d($uri);
 
 
 // ROUTING
-
+if ('login' == $uri[0]) {
+    (new AccountController)->login();
+}
 if ('' == $uri[0]) {
     (new AccountController)->index();
 }
