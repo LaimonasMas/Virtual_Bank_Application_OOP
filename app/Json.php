@@ -40,7 +40,7 @@ class Json
         $this->data = json_encode($data);
     }
 
-    public function getBox(int $id): ?object
+    public function getAccount(int $id): ?object
     {
         foreach ($this->data as $account) {
             if ($account->id == $id) {
@@ -57,21 +57,21 @@ class Json
         $this->data[] = $account;
     }
 
-    public function addMoney(object $updateBox): void
+    public function addMoney(object $updateAccount): void
     {
         foreach ($this->data as $key => $box) {
-            if ($box->id == $updateBox->id) {
-                $this->data[$key] = $updateBox;
+            if ($box->id == $updateAccount->id) {
+                $this->data[$key] = $updateAccount;
                 return;
             }
         }
     }
 
-    public function withdrawMoney(object $updateBox): void
+    public function withdrawMoney(object $updateAccount): void
     {
         foreach ($this->data as $key => $box) {
-            if ($box->id == $updateBox->id) {
-                $this->data[$key] = $updateBox;
+            if ($box->id == $updateAccount->id) {
+                $this->data[$key] = $updateAccount;
                 return;
             }
         }

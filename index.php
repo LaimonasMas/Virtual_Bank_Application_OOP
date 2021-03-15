@@ -26,13 +26,16 @@ elseif ('list' == $uri[0]) {
     (new AccountController)->list();
 }
 elseif ('add' == $uri[0]) {
-    (new AccountController)->add();
+    (new AccountController)->add((int)$uri[1]);
+}
+elseif ('add' == $uri[0]) {
+    (new AccountController)->add((int)$uri[1]);
 }
 elseif ('addMoney' == $uri[0]) {
     (new AccountController)->addMoney((int)$uri[1]);
 }
 elseif ('withdraw' == $uri[0]) {
-    (new AccountController)->withdraw();
+    (new AccountController)->withdraw((int)$uri[1]);
 }
 elseif ('withdrawMoney' == $uri[0]) {
     (new AccountController)->withdrawMoney((int)$uri[1]);
