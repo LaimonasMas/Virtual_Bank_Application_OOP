@@ -1,5 +1,7 @@
 <?php
 require __DIR__.'/bootstrap.php';
+use App\AccountController;
+// include 'vendor\autoload.php';
 
 $uri = explode('/',str_replace(INSTALL_DIR, '', $_SERVER['REQUEST_URI']));
 

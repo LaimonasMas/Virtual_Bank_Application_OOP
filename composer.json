@@ -1,0 +1,13 @@
+{
+    "name": "laimonas/nd_8oop",
+    "authors": [{
+        "name": "Laimonas Masionis",
+        "email": "71811684+LaimonasMas@users.noreply.github.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    }
+}

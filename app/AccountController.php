@@ -1,4 +1,7 @@
 <?php
+namespace App;
+use App\Json;
+use App\Account;
 
 class AccountController
 {
