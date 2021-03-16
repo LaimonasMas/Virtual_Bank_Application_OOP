@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "nd_8oop\\": "nd_8oop"
+            "": ""
         }
     }
 }
