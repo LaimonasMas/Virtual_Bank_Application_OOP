@@ -19,7 +19,7 @@
     <tbody>
         <tr>
             <td>
-                <p><?= App\Json::accountReadOnly() ?></p>
+                <p><?= App\Account::accountReadOnly() ?></p>
             </td>
         </tr>
     </tbody>
