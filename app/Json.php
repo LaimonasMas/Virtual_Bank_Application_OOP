@@ -53,11 +53,24 @@ class Json
         return null;
     }
 
-    public function store(Account $account): void
+    public function store(): void
     {
-        $id = $this->getNextId();
-        $account->id = $id;
-        $this->data[] = $account;
+        if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && (preg_match('/(^[3-6]\d{2}[0-1]\d{1}[0-3]\d{5})$/', $_POST['personalID']) === 1)) {
+            $account = new Account;
+            $account->amount = (int) ($_POST['count'] ?? 0);
+            $account->name = ($_POST['name'] ?? '');
+            $account->surname = ($_POST['surname'] ?? '');
+            $account->accountNumber = ($_POST['accountNumber'] ?? '');
+            $account->personalID = ($_POST['personalID'] ?? '');
+            $id = $this->getNextId();
+            $account->id = $id;
+            $this->data[] = $account;
+            header('Location: ' . URL . 'created');
+            die;
+        } else {
+            header('Location: ' . URL . 'create');
+            die;
+        }
     }
 
     public function addMoney(object $updateAccount): void
