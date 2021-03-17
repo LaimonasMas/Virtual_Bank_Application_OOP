@@ -1,6 +1,6 @@
 <?php require DIR . 'views/top.php'; 
 
-use App\Json;
+// use App\Json;
 
 ?>
 <div style="height: 400px; background-image: url('<?= URL ?>img/1593762393592(2).jpg')" class="topnav">
@@ -19,7 +19,7 @@ use App\Json;
     <tbody>
         <tr>
             <td>
-                <p><?= Json::accountReadOnly() ?></p>
+                <p><?= App\Json::accountReadOnly() ?></p>
             </td>
         </tr>
     </tbody>

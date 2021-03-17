@@ -1,6 +1,6 @@
 <?php require DIR . 'views/top.php'; 
 
-use App\Json;
+// use App\Json;
 
 ?>
 
@@ -22,7 +22,7 @@ use App\Json;
             <td>
                 <form action="<?= URL ?>store" method="post">
                 <input type="hidden" name="count" value="0">
-                <input type="hidden" name="accountNumber" value="<?php echo Json::accountGenerator() ?>">
+                <input type="hidden" name="accountNumber" value="<?php echo App\Json::accountGenerator() ?>">
                     Vardas: <input type="text" name="name" value="">
                     Pavardė: <input type="text" name="surname" value="">
                     Asmens kodas: <input type="text" name="personalID" id="">

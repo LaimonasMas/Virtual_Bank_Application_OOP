@@ -11,7 +11,7 @@ class Json
 
     public static function getDB()
     {
-        return self::$jsonObj ?? self::$jsonObj = new self;
+        return self::$jsonObj ?? self::$jsonObj = new self; // sukuria tik viena objekta
     }
 
     private function __construct()
