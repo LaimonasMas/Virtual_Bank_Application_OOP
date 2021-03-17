@@ -22,7 +22,7 @@
             <td>
                 <form action="<?= URL ?>store" method="post">
                 <input type="hidden" name="count" value="0">
-                <input type="hidden" name="accountNumber" value="<?php echo App\Json::accountGenerator() ?>">
+                <input type="hidden" name="accountNumber" value="<?php echo App\Account::accountGenerator() ?>">
                     Vardas: <input type="text" name="name" value="">
                     Pavardė: <input type="text" name="surname" value="">
                     Asmens kodas: <input type="text" name="personalID" id="">
