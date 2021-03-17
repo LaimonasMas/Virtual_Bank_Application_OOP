@@ -21,12 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <tbody>
         <tr>
             <th scope="row"></th>
-            <td><?= $account->id ?></td>
-            <td><?= $account->name ?></td>
-            <td><?= $account->surname ?></td>
-            <td><?= $account->personalID ?></td>
-            <td><?= $account->accountNumber ?></td>
-            <td>€ <?= $account->amount ?></td>
+            <?php require DIR . 'views/tableMainRow.php' ?>
             <td>
                 <form action="<?= URL ?>addMoney/<?= $account->id ?>" method="post">
                     Pridėti: <input type="text" name="addEur" value="">

@@ -1,6 +1,7 @@
 <?php
 namespace App;
 use App\Account;
+use App\Helper;
 
 class Json
 {
@@ -103,6 +104,26 @@ class Json
         $index = json_encode($index);
         file_put_contents(DIR . 'data/indexes.json', $index);
         return $id;
+    }
+
+    public static function getRate(String $currency): float
+    {
+        if (!file_exists(DIR . 'data/rates.json')) { // pirmas kartas
+            $rateFromApi = Helper::getRateFromAPI($currency);
+            $rate = json_encode(['rate' => $rateFromApi, 'time' => time()]);
+            file_put_contents(DIR . 'data/rates.json', $rate);
+        }
+        $rates = file_get_contents(DIR . 'data/rates.json');
+        $rates = json_decode($rates, 1);
+        $timeDiff = time() - $rates['time'];
+        if ($timeDiff < 300) {
+            return $rates['rate'];
+        } elseif ($timeDiff >= 300) {            
+            $rateFromApi = Helper::getRateFromAPI($currency);
+            $rate = json_encode(['rate' => $rateFromApi, 'time' => time()]);
+            file_put_contents(DIR . 'data/rates.json', $rate);
+            return $rateFromApi;
+        }
     }
 
     public static function accountGenerator()
