@@ -104,18 +104,3 @@ class Json
     }
 
 }
-
-
-/*
-[
-    ['id'=>1, 'bannana'=> 0],
-    ['id'=>2, 'bannana'=> 10],
-    ['id'=>3, 'bannana'=> 600],
-    ['id'=>4, 'bannana'=> 10],
-    
-]
-'index.php' ----> __DIR__ c:/x/box/ <----- atskaitos taskas define DIR
-'../index.php' ----> __DIR__ c:/x/box/app
-'../../index.php' ----> __DIR__ c:/x/box/app/dargiliau
-__DIR__+'index.php'
-*/
