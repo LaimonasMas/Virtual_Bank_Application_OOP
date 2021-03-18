@@ -9,4 +9,4 @@ $users = [
     ['name' => 'Tauras', 'surname' => 'Masionis', 'pass' => password_hash('123', PASSWORD_DEFAULT)]
 ];
 
-file_put_contents(__DIR__.'/users.json', json_encode($users));
+file_put_contents(DIR . 'data/users.json', json_encode($users));

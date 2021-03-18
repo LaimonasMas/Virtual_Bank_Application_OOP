@@ -1,7 +1,7 @@
 <?php require DIR.'views/top.php' ?>
 <?php require DIR.'views/menu.php' ?>
 <?php 
-_d($_POST);
+
 ?>
     <div class="virsimg">
         <img style="display:block; width:300px;" src="<?= URL ?>img/1. 19_SEB_Kontor_Katarinavägen17_147_5.jpg" alt="">
