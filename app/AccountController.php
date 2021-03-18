@@ -48,7 +48,7 @@ class AccountController
     public function list()
     {
         $pageTitle = 'Sąskaitų sąrašas';
-        $accounts = Json::getDB()->readData();
+        $accounts = Account::sortedAccounts();
         require DIR . 'views/list.php';
     }
 

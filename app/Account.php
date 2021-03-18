@@ -1,7 +1,9 @@
 <?php
+
 namespace App;
 
-class Account {
+class Account
+{
     public $id, $name, $surname, $personalID, $accountNumber, $amount;
 
     public static function accountGenerator()
@@ -35,8 +37,17 @@ class Account {
         $lastAccount = $data[count($data) - 1];
         $accountNr = $lastAccount['accountNumber'];
         $name = $lastAccount['name'];
-        $surname = $lastAccount['surname'];  
-        _d($data);   
+        $surname = $lastAccount['surname'];
+        _d($data);
         return "Naują sąskaitą sukūrė $name $surname, sąskaitos numeris: $accountNr";
+    }
+
+    public static function sortedAccounts()
+    {
+        $accounts = Json::getDB()->readData();
+        usort($accounts, function ($a, $b) {
+            return $a->surname <=> $b->surname;
+        });
+        return $accounts;
     }
 }

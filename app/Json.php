@@ -32,9 +32,6 @@ class Json
 
     public function readData(): array
     {
-        usort($this->data, function ($a, $b) {
-            return $a->surname <=> $b->surname;
-        });
         return $this->data;
     }
 
@@ -106,25 +103,6 @@ class Json
         return $id;
     }
 
-    public static function getRate(String $currency): float
-    {
-        if (!file_exists(DIR . 'data/rates.json')) { // pirmas kartas
-            $rateFromApi = Helper::getRateFromAPI($currency);
-            $rate = json_encode(['rate' => $rateFromApi, 'time' => time()]);
-            file_put_contents(DIR . 'data/rates.json', $rate);
-        }
-        $rates = file_get_contents(DIR . 'data/rates.json');
-        $rates = json_decode($rates, 1);
-        $timeDiff = time() - $rates['time'];
-        if ($timeDiff < 300) {
-            return $rates['rate'];
-        } elseif ($timeDiff >= 300) {            
-            $rateFromApi = Helper::getRateFromAPI($currency);
-            $rate = json_encode(['rate' => $rateFromApi, 'time' => time()]);
-            file_put_contents(DIR . 'data/rates.json', $rate);
-            return $rateFromApi;
-        }
-    }
 }
 
 

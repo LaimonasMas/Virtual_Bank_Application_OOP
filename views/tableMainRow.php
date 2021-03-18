@@ -3,4 +3,4 @@
 <td><?= $account->surname ?></td>
 <td><?= $account->personalID ?></td>
 <td><?= $account->accountNumber ?></td>
-<td>€ <?= $account->amount ?><br>¥ <?= $amount = (App\Json::getRate('JPY') * $account->amount) ?></td>
+<td>€ <?= $account->amount ?><br>¥ <?= $amount = (App\Currency::getRate('JPY') * $account->amount) ?></td>
