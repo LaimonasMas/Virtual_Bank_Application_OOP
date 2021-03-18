@@ -29,7 +29,20 @@ class AccountController
 
     public function store()
     {
-        Json::getDB()->store(); // sukuria
+        if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && (preg_match('/(^[3-6]\d{2}[0-1]\d{1}[0-3]\d{5})$/', $_POST['personalID']) === 1)) {
+            $account = new Account;
+            $account->amount = (int) ($_POST['count'] ?? 0);
+            $account->name = ($_POST['name'] ?? '');
+            $account->surname = ($_POST['surname'] ?? '');
+            $account->accountNumber = ($_POST['accountNumber'] ?? '');
+            $account->personalID = ($_POST['personalID'] ?? '');
+            Json::getDB()->store($account); // sukuria
+            header('Location: ' . URL . 'created');
+            die;
+        } else {
+            header('Location: ' . URL . 'create');
+            die;
+        }
     }
 
     public function list()
