@@ -32,9 +32,6 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
     elseif ('add' == $uri[0]) {
         (new A)->add((int)$uri[1]);
     }
-    elseif ('add' == $uri[0]) {
-        (new A)->add((int)$uri[1]);
-    }
     elseif ('addMoney' == $uri[0]) {
         (new A)->addMoney((int)$uri[1]);
     }
