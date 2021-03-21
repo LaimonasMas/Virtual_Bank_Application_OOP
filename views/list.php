@@ -1,8 +1,10 @@
 <?php require DIR . 'views/top.php' ?>
 <?php 
-$data = file_get_contents(DIR . 'data/accounts.json');
-_d($data);
-_d(str_contains($data, 'Linas'));
+$id = 38607090178;
+$rest = substr($id, -11, 1)*1 + substr($id, -10, 1)*2 + substr($id, -9, 1)*3 + substr($id, -8, 1)*4 + substr($id, -7, 1)*5 + substr($id, -6, 1)*6 + substr($id, -5, 1)*7 + substr($id, -4, 1)*8 + substr($id, -3, 1)*9 + substr($id, -2, 1)*1;
+
+_d($rest);
+
 
 ?>
 <div style="height: 400px; background-image: url('<?= URL ?>img/1593762393592(2).jpg')" class="topnav">

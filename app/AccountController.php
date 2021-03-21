@@ -2,6 +2,7 @@
 namespace App;
 use App\Json;
 use App\Account;
+use App\Helper;
 
 class AccountController
 {
@@ -29,7 +30,7 @@ class AccountController
 
     public function store()
     {
-        if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && (preg_match('/(^[3-6]\d{2}[0-1]\d{1}[0-3]\d{5})$/', $_POST['personalID']) === 1)) {
+        if (!empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['personalID']) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['name']) === 1) && (preg_match('/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]{3,50}$/', $_POST['surname']) === 1) && Helper::personalLtIdCheck($_POST['personalID'])) {
             $account = new Account;
             $account->amount = (int) ($_POST['count'] ?? 0);
             $account->name = ($_POST['name'] ?? '');
