@@ -8,23 +8,48 @@ class Account
 
     public static function accountGenerator()
     {
-        $string1 = '';
-        for ($i = 0; $i < 2; $i++) {
-            $string1 .= rand(0, 9);
+        if (!file_exists(DIR . 'data/accounts.json')) { // pirmas kartas
+            $string1 = '';
+            for ($i = 0; $i < 2; $i++) {
+                $string1 .= rand(0, 9);
+            }
+            $string2 = '';
+            for ($i = 0; $i < 3; $i++) {
+                $string2 .= rand(0, 9);
+            }
+            $string3 = '';
+            for ($i = 0; $i < 4; $i++) {
+                $string3 .= rand(0, 9);
+            }
+            $string4 = '';
+            for ($i = 0; $i < 4; $i++) {
+                $string4 .= rand(0, 9);
+            }
+            $newAccountNumber = 'LT' . $string1 . ' ' . '7044 0' . $string2 . ' ' . $string3 . ' ' . $string4;
+            return $newAccountNumber;
+        } else {
+            $data = file_get_contents(DIR . 'data/accounts.json');
+            do {
+                $string1 = '';
+                for ($i = 0; $i < 2; $i++) {
+                    $string1 .= rand(0, 9);
+                }
+                $string2 = '';
+                for ($i = 0; $i < 3; $i++) {
+                    $string2 .= rand(0, 9);
+                }
+                $string3 = '';
+                for ($i = 0; $i < 4; $i++) {
+                    $string3 .= rand(0, 9);
+                }
+                $string4 = '';
+                for ($i = 0; $i < 4; $i++) {
+                    $string4 .= rand(0, 9);
+                }
+                $newAccountNumber = 'LT' . $string1 . ' ' . '7044 0' . $string2 . ' ' . $string3 . ' ' . $string4;
+            } while (str_contains($data, $newAccountNumber));
+            return $newAccountNumber;
         }
-        $string2 = '';
-        for ($i = 0; $i < 3; $i++) {
-            $string2 .= rand(0, 9);
-        }
-        $string3 = '';
-        for ($i = 0; $i < 4; $i++) {
-            $string3 .= rand(0, 9);
-        }
-        $string4 = '';
-        for ($i = 0; $i < 4; $i++) {
-            $string4 .= rand(0, 9);
-        }
-        return 'LT' . $string1 . ' ' . '7044 0' . $string2 . ' ' . $string3 . ' ' . $string4;
     }
 
     public static function accountReadOnly()
