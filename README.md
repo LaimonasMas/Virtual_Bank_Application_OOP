@@ -6,6 +6,7 @@ Simple virtual bank application
 - PHP
 - OOP
 - CRUD
+- API
 - Login
 - Bootstrap
 - Json
